@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-rw09jgzds=l+5j7micbwg!8h)nc5x7#8_z%3581f%q_f-fy-=y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pixelboxstudiobackend.in', 'www.pixelboxstudiobackend.in', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -142,9 +142,14 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://pixelboxstudios.in",
+    "https://www.pixelboxstudios.in",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+# Allow all origins for development (remove in production)
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Media files
 MEDIA_URL = '/media/'
