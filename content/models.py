@@ -529,6 +529,18 @@ class AboutContent(models.Model):
         default=list,
         help_text="JSON array of company values"
     )
+    about_image = models.ImageField(
+        upload_to='about/images/',
+        blank=True,
+        null=True,
+        help_text="Upload about section image"
+    )
+    about_image_url = models.URLField(
+        max_length=500,
+        blank=True,
+        null=True,
+        help_text="OR URL for the about section image"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

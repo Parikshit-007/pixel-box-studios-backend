@@ -292,6 +292,10 @@ class AboutContentAdmin(admin.ModelAdmin):
         ('About Information', {
             'fields': ('title', 'description')
         }),
+        ('About Image', {
+            'fields': ('about_image', 'about_image_url'),
+            'description': 'Upload about section image OR provide image URL. If both are provided, uploaded image takes priority.'
+        }),
         ('Company Story', {
             'fields': ('story',)
         }),
