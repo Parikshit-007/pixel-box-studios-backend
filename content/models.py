@@ -63,13 +63,25 @@ class Hero(models.Model):
         upload_to='hero/images/',
         blank=True,
         null=True,
-        help_text="Upload hero image (alternative to video)"
+        help_text="Upload hero image (Landscape/Desktop - 16:9)"
+    )
+    hero_image_portrait = models.ImageField(
+        upload_to='hero/images/',
+        blank=True,
+        null=True,
+        help_text="Upload portrait hero image (Mobile Portrait - 9:16)"
     )
     image_url = models.URLField(
         max_length=500,
         blank=True,
         null=True,
-        help_text="OR URL for the hero image"
+        help_text="OR URL for the landscape hero image"
+    )
+    image_url_portrait = models.URLField(
+        max_length=500,
+        blank=True,
+        null=True,
+        help_text="OR URL for the portrait hero image"
     )
     
     # Logo fields

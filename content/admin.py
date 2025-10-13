@@ -50,8 +50,8 @@ class HeroAdmin(admin.ModelAdmin):
             'description': 'Upload a portrait video file (9:16 aspect ratio) OR provide a video URL. Used for mobile portrait displays.'
         }),
         ('Hero Image (Alternative to Video)', {
-            'fields': ('hero_image', 'image_url'),
-            'description': 'Upload an image OR provide image URL. Use this as alternative to video. Image takes priority if both video and image are provided.'
+            'fields': ('hero_image', 'hero_image_portrait', 'image_url', 'image_url_portrait'),
+            'description': 'Upload an image OR provide image URL. Landscape (16:9) for desktop, Portrait (9:16) for mobile. Image takes priority if both video and image are provided.'
         }),
         ('Company Logo', {
             'fields': ('logo_upload', 'logo_url'),
@@ -77,7 +77,9 @@ class HeroAdmin(admin.ModelAdmin):
     has_video.short_description = 'Has Video'
     
     def has_image(self, obj):
-        return bool(obj.hero_image or obj.image_url)
+        return bool(
+            obj.hero_image or obj.image_url or obj.hero_image_portrait or obj.image_url_portrait
+        )
     has_image.boolean = True
     has_image.short_description = 'Has Image'
     
